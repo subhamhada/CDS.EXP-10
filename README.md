@@ -7,26 +7,38 @@ To study and implement Pointer Operations (Call by value and Call by reference)
 Vs code
 
 ## Theory -
-Comparison
-Feature  |	Call by Value	|  Call by Reference (Pointer)
-Data Passed	| Copy of the argument's value	| Address (pointer) to the data
-Function Modification	| Does not affect original data |	Directly modifies original data
-Data Size Efficiency	Less efficient for large data	More efficient for large data
-Safety	Safer, as original data remains unchanged	Riskier, as original data can be altered
 
-
+## Comparison Table between Call By Value and Call By Refernce   
 
 | Feature           | Call By Value                                           | Call By Refernce                                       |
 |-------------------|-------------------------------------------------|----------------------------------------------|
-| *Definition*    | A collection of elements of the same type stored in contiguous memory locations. | Sequences of characters used to represent text. Designed for textual data. |
-| *Data Passed*          |Size can be fixed or dynamic based on the language (e.g., static in C, dynamic in Python).         | Size is dynamic and adjusts with the length of the text. |
-| *Mutability*    | Usually mutable; elements can be changed after the array is created.| Generally immutable; modifying a string creates a new one rather than altering the original. |
-| *Access*        | Accessed via indices.                          | Characters accessed via indices; includes built-in methods for manipulation. |
-| *Operations*    | Support various operations like sorting, searching, and element manipulation.  |Support operations like concatenation, substring extraction, and text formatting.|
-| *Memory Allocation* |Typically allocated with a fixed size and contiguous memory.|Memory allocation can be variable and managed dynamically based on string length and encoding. |
-| *Indexing* | Elements are accessed via numerical indices (e.g., arr[0]). | Characters are accessed via numerical indices (e.g., str[0]). |
-| *Data Type* | Can hold multiple data types depending on the language (e.g., integers, floats, objects). |Specifically hold text data (characters).|
-| *Use Cases* | Used for storing and processing collections of related data (e.g., lists of numbers, objects). |used for handling and manipulating textual data(e.g., user imput, file content|
+| *Definition*    | A function receives a copy of the argument's value, not the original data.<br> Changes made within the function affect only the copy and do not alter the original data. | A function receives a reference (or address) to the original argument, allowing it to modify the actual data.<br> Changes made within the function directly affect the original variable. |
+| *Data Passed*          | Copy of the argument's value.         | Address (pointer) to the data. |
+| *Function Modification*    | Does not affect original data.| Does not affect original data. |
+| *Data Size Efficiencys*        | Less efficient for large data.                          | More efficient for large data. |
+| *Safety*    | Safer, as original data remains unchanged.  |Riskier, as original data can be altered.|
+
+## Call By Value -
+when a function is called, a copy of the actual argument's value is passed to the function.<br> <br>The function works with this copy, rather than the original data.<br><br> Changes made to the parameter within the function do not affect the original argument outside the function.
+
+### Advantages
+*Safety:* Protects the original data from unintended changes.<br>
+*Simplicity:* Easier to understand and debug, as the function operates on a copy.
+
+### Disadvantages
+*Overhead:* Copying large data structures can be inefficient in terms of both time and memory.<br>
+*Limited Modification:* Functions cannot alter the original argument, which may be limiting for certain operations.
+
+## Call By Refernce -
+A function receives a reference (or address) to the actual argument rather than a copy of its value.<br><br> This means that the function can directly access and modify the original data stored at that address.<br><br> This method is commonly used in languages like C++.
+
+### Advantages
+*Performance:* Efficient for large or complex data types since it avoids the cost of copying data.<br>
+*Direct Modifications:* Allows functions to change the argument directly, which is useful for operations like sorting, updating, or modifying objects.
+
+### Disadvantages
+*Side Effects:* The original data can be altered unexpectedly, which can lead to bugs or unintended behavior if not managed carefully.<br>
+*Debugging Complexity:* Tracking changes to data through references can be more challenging, as changes affect the original data and not just the function's local copy.
 
 ## codes-
 ### 1. *Call By Value* -
@@ -82,11 +94,40 @@ int main()
 }
 ```
 
+### 3. *Swapping The Values* -
+```
+//subham
+//entc B2
+//23070123132
+//experiment 10
+#include<iostream> 
+using namespace std; 
+void swap(int *x, int *y) 
+//swapping the values
+{
+    int *swap;
+    swap=x;
+    x=y;
+    y=swap;
+}
+
+int main() 
+{
+    int a=4,b=7;
+    swap(a,b);
+    cout<<"Value of a is: "<<a<<"\n";
+    cout<<"Value of b is: "<<b<<"\n";
+    return 0;
+}
+```
+
 ## Output -
 ### 1. *Call By Value* -
 ![Screenshot 2024-08-21 101953](https://github.com/user-attachments/assets/7b2cb836-425e-4796-a045-0e8fb0002a7b)
 
 ### 2. *Call By Reference* -
 ![Screenshot 2024-08-21 102010](https://github.com/user-attachments/assets/a190f2b9-f2e6-4845-95b1-98a01bd0dd5a)
+
+### 3. *Swapping The Values* -
 
 ## Conclusion -
