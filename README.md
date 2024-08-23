@@ -14,7 +14,6 @@ Vs code
 |-------------------|-------------------------------------------------|----------------------------------------------|
 | *Definition*    | A function receives a copy of the argument's value, not the original data.<br> Changes made within the function affect only the copy and do not alter the original data. | A function receives a reference (or address) to the original argument, allowing it to modify the actual data.<br> Changes made within the function directly affect the original variable. |
 | *Data Passed*          | Copy of the argument's value.         | Address (pointer) to the data. |
-| *Function Modification*    | Does not affect original data.| Does not affect original data. |
 | *Data Size Efficiencys*        | Less efficient for large data.                          | More efficient for large data. |
 | *Safety*    | Safer, as original data remains unchanged.  |Riskier, as original data can be altered.|
 
