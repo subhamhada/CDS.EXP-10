@@ -1,0 +1,23 @@
+//subham
+//entc B2
+//23070123132
+//experiment 10
+#include<iostream> 
+using namespace std; 
+void swap(int x, int y) 
+//swapping the values
+{
+    int swap;
+    swap=x;
+    x=y;
+    y=swap;
+    cout<<"Value of a is: "<<x<<"\n";
+    cout<<"Value of b is: "<<y<<"\n";
+}
+
+int main() 
+{
+    int a=4,b=7;
+    swap(a,b);
+    return 0;
+}
