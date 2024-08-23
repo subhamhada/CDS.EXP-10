@@ -108,14 +108,14 @@ void swap(int *x, int *y)
     swap=x;
     x=y;
     y=swap;
+    cout<<"Value of a is: "<<a<<"\n";
+    cout<<"Value of b is: "<<b<<"\n";
 }
 
 int main() 
 {
     int a=4,b=7;
     swap(a,b);
-    cout<<"Value of a is: "<<a<<"\n";
-    cout<<"Value of b is: "<<b<<"\n";
     return 0;
 }
 ```
