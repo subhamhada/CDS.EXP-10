@@ -46,24 +46,28 @@ A function receives a reference (or address) to the actual argument rather than 
 //entc B2
 //23070123132
 //experiment 10
-#include <iostream>
+//Pointer operations - call by value
+#include<iostream>
 using namespace std;
-void swap(int &x, int &y) 
-// call by value
-{
-    int temp = x;
-    x = y;
-    y = temp;
 
-    // Printing the values inside the swap function
-    cout << "Inside swap function: " << endl;
-    cout << "Value of x is " << x << endl;
-    cout << "Value of y is " << y << endl;
-}
-int main() 
+void swap(int x, int y)
 {
-    int a = 5, b = 7;
-    swap(a, b);
+    int temp;
+    temp = x;
+    x = y;
+    y = temp; 
+
+    cout << "Value of a is: " << x << endl;
+    cout << "Value of b is: " << y << endl;
+}
+
+int main()
+{
+    int a,b;
+    cout<< "Enter the value for a and b: "<<endl;
+    cin >> a >> b;
+    swap(a, b); 
+
     return 0;
 }
 ```
@@ -74,61 +78,38 @@ int main()
 //entc B2
 //23070123132
 //experiment 10
-#include <iostream>
+//Pointer operations - call by reference 
+#include<iostream>
 using namespace std;
-void swap(int &x, int &y) 
-//call by reference
-{
-    int num = x;
-    x = y;
-    y = num;
-}
-int main() 
-{
-    int a = 5, b = 7;
-    swap(a, b);  // Pass by reference
-    cout << "Value of a is " << a << endl;
-    cout << "Value of b is " << b << endl;
-    return 0;
-}
-```
 
-### 3. *Swapping The Values* -
-```
-//subham
-//entc B2
-//23070123132
-//experiment 10
-#include<iostream> 
-using namespace std; 
-void swap(int *x, int *y) 
-//swapping the values
+void swap(int *x, int *y)  // use of pointers
 {
-    int *swap;
-    swap=x;
-    x=y;
-    y=swap;
-    cout<<"Value of a is: "<<a<<"\n";
-    cout<<"Value of b is: "<<b<<"\n";
+    int swap;
+    swap = *x;
+    *x = *y;
+    *y = swap; 
 }
 
-int main() 
+int main()
 {
-    int a=4,b=7;
-    swap(a,b);
+    int a,b;
+    cout<<"Enter a: "<<endl;
+    cin>>a;
+    cout<<"Enter b: "<<endl;
+    cin>>b;
+    swap(&a,&b);  // Passing addresses of a and b
+    cout<<"Value of a is: "<<a<<endl;
+    cout<<"Value of b is: "<<b<<endl;
     return 0;
 }
 ```
 
 ## Output -
 ### 1. *Call By Value* -
-![Screenshot 2024-08-21 101953](https://github.com/user-attachments/assets/7b2cb836-425e-4796-a045-0e8fb0002a7b)
+![Screenshot 2024-09-04 103439](https://github.com/user-attachments/assets/8377bc21-ed5b-4889-ae61-6fd0e5747d58)
 
 ### 2. *Call By Reference* -
-![Screenshot 2024-08-21 102010](https://github.com/user-attachments/assets/a190f2b9-f2e6-4845-95b1-98a01bd0dd5a)
-
-### 3. *Swapping The Values* -
-![Screenshot 2024-08-21 105747](https://github.com/user-attachments/assets/fb28a0c7-284b-4fa8-8cb1-5f7beaaee679)
+![Screenshot 2024-09-04 103457](https://github.com/user-attachments/assets/11381f36-c81a-4c04-96da-5fd176d99959)
 
 ## Conclusion -
 I learnt about pointers and how to pass arguments to functions using call by value and call by reference methods. I also learnt how to swap values using call by reference.
